@@ -3,7 +3,7 @@ package net.riking.design.decorator.pattern.morrigan;
 import javax.swing.*;
 
 //具体装饰角色：可爱少女
-class SweetGirl extends Transfiguration
+public class SweetGirl extends Transfiguration
 {
     public SweetGirl(Morrigan m)
     {

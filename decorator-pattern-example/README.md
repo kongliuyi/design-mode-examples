@@ -4,6 +4,7 @@
 ####https://blog.csdn.net/liujun03/article/details/80738546
 在现实生活中，常常需要对现有产品增加新的功能或美化其外观，如房子装修、相片加相框等。在软件开发过程中，有时想用一些现存的组件。这些组件可能只是完成了一些核心功能。但在不改变其结构的情况下，可以动态地扩展其功能。所有这些都可以釆用装饰模式来实现。
 装饰模式的定义与特点
+
 装饰（Decorator）模式的定义：指在不改变现有对象结构的情况下，动态地给该对象增加一些职责（即增加其额外功能）的模式，它属于对象结构型模式。
 
 装饰（Decorator）模式的主要优点有：
@@ -14,9 +15,11 @@
 
 其主要缺点是：装饰模式增加了许多子类，如果过度使用会使程序变得很复杂。
 装饰模式的结构与实现
+
 通常情况下，扩展一个类的功能会使用继承方式来实现。但继承具有静态特征，耦合度高，并且随着扩展功能的增多，子类会很膨胀。如果使用组合关系来创建一个包装对象（即装饰对象）来包裹真实对象，并在保持真实对象的类结构不变的前提下，为其提供额外的功能，这就是装饰模式的目标。下面来分析其基本结构和实现方法。
 
 1. 模式的结构
+
 装饰模式主要包含以下角色。
 
 
@@ -27,3 +30,24 @@
 
 
 ####【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
+
+```java
+	import org.springframework.boot.*;
+	import org.springframework.boot.autoconfigure.*;
+	import org.springframework.web.bind.annotation.*;
+
+	@RestController
+	@SpringBootApplication
+	public class Example {
+
+		@RequestMapping("/")
+		String home() {
+			return "Hello World!";
+		}
+
+		public static void main(String[] args) {
+			SpringApplication.run(Example.class, args);
+		}
+
+	}
+```

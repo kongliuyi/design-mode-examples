@@ -1,9 +1,9 @@
-package net.riking.design.observer.mode.bellevent;
+package net.riking.design.observer.mode.event;
 
-import java.util.EventObject;
 
-//铃声事件类：用于封装事件源及一些与事件相关的参数
-public class RingEvent extends EventObject
+
+//铃声事件：用于封装事件源及一些与事件相关的参数
+public class RingEvent extends SoundEvent
 {   
     private static final long serialVersionUID=1L;
     private boolean sound;    //true表示上课铃声,false表示下课铃声
@@ -11,10 +11,7 @@ public class RingEvent extends EventObject
     {
         super(source);
         this.sound=sound;
-    }   
-    public void setSound(boolean sound)
-    {
-        this.sound=sound;
+        System.out.println(sound?"上课铃响!":"下课铃响!");
     }
     public boolean getSound()
     {

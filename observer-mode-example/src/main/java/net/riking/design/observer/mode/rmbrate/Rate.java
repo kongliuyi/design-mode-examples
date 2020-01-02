@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //抽象目标：汇率
-abstract class Rate
+public abstract class Rate
 {
     protected List<Company> companys=new ArrayList<Company>();
     //增加观察者方法
