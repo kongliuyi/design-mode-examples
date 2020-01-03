@@ -1,4 +1,4 @@
-package net.riking.design.observer.mode.event;
+package net.riking.design.observer.pattern.event;
 
 //具体观察者：老师针对铃声事件监听器
 public class TeacherListener implements PersonListener<RingEvent>

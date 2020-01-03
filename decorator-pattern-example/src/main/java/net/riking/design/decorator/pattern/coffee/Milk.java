@@ -3,7 +3,7 @@ package net.riking.design.decorator.pattern.coffee;
 /**
  * 具体装饰（ConcreteDecorator）角色：牛奶
  */
-public class Milk extends Decorator{
+public class Milk extends DecoratorCoffee{
 	private String description = "牛奶！";
 	public Milk(Beverages beverages){
 		super(beverages);

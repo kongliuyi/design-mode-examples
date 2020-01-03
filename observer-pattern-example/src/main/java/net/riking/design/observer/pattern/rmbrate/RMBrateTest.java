@@ -1,4 +1,4 @@
-package net.riking.design.observer.mode.rmbrate;
+package net.riking.design.observer.pattern.rmbrate;
 
 public class RMBrateTest
 {

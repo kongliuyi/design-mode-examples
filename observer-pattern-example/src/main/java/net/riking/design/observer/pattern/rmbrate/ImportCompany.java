@@ -1,4 +1,4 @@
-package net.riking.design.observer.mode.rmbrate;
+package net.riking.design.observer.pattern.rmbrate;
 
 //具体观察者1：进口公司
 class ImportCompany implements Company 

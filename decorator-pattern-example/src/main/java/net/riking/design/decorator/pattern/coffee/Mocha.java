@@ -2,7 +2,7 @@ package net.riking.design.decorator.pattern.coffee;
 /**
  * 具体装饰（ConcreteDecorator）角色：摩卡
  */
-public class Mocha extends Decorator {
+public class Mocha extends DecoratorCoffee {
 	private String description = "摩卡！";
 
 	public Mocha(Beverages beverages){

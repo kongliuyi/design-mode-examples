@@ -3,7 +3,7 @@ package net.riking.design.decorator.pattern.morrigan;
 import javax.swing.*;
 
 //具体装饰角色：蝙蝠女妖
-public class BatGirl extends Transfiguration
+public class BatGirl extends DecoratorMorrigan
 {
     public BatGirl(Morrigan m)
     {

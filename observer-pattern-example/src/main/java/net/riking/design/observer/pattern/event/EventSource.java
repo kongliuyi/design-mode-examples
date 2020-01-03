@@ -1,4 +1,4 @@
-package net.riking.design.observer.mode.event;
+package net.riking.design.observer.pattern.event;
 
 //抽象主题：事件源
 public interface EventSource {

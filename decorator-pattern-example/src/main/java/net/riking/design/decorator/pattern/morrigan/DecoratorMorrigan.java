@@ -1,10 +1,10 @@
 package net.riking.design.decorator.pattern.morrigan;
 
 //抽象装饰角色：变身
-public abstract  class Transfiguration implements Morrigan
+public abstract  class DecoratorMorrigan implements Morrigan
 {
     Morrigan m;   
-    public Transfiguration(Morrigan m)
+    public DecoratorMorrigan(Morrigan m)
     {
         this.m=m;
     }

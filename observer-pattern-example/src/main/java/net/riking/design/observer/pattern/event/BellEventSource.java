@@ -1,4 +1,4 @@
-package net.riking.design.observer.mode.event;
+package net.riking.design.observer.pattern.event;
 
 import java.util.*;
 

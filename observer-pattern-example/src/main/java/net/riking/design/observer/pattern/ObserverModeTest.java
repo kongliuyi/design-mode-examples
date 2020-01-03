@@ -1,6 +1,6 @@
-package net.riking.design.observer.mode;
+package net.riking.design.observer.pattern;
 
-import net.riking.design.observer.mode.event.*;
+import net.riking.design.observer.pattern.event.*;
 import org.junit.Test;
 
 public class ObserverModeTest {
