@@ -1,7 +1,8 @@
 # decorator-mode-examples
-####http://c.biancheng.net/view/1366.html
-####https://blog.csdn.net/zhshulin/article/details/38665187
-####https://blog.csdn.net/liujun03/article/details/80738546
+#### http://c.biancheng.net/view/1366.html
+#### https://blog.csdn.net/zhshulin/article/details/38665187
+#### https://blog.csdn.net/liujun03/article/details/80738546
+
 在现实生活中，常常需要对现有产品增加新的功能或美化其外观，如房子装修、相片加相框等。在软件开发过程中，有时想用一些现存的组件。这些组件可能只是完成了一些核心功能。但在不改变其结构的情况下，可以动态地扩展其功能。所有这些都可以釆用装饰模式来实现。
 装饰模式的定义与特点
 
@@ -29,10 +30,11 @@
      具体装饰（ConcreteDecorator）角色：实现抽象装饰的相关方法，并给具体构件对象添加附加的责任。
 
 
-【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
+## 【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
 
 程序代码如下： 
 
+ - 抽象构件角色
 ```java
 package net.riking.design.decorator.pattern.morrigan;
 //抽象构件角色：莫莉卡
@@ -43,7 +45,7 @@ public interface  Morrigan
      void display();
 }
 ```
-
+- 具体构件角色
 ```java
 package net.riking.design.decorator.pattern.morrigan;
 
@@ -78,6 +80,90 @@ public class OriginalGirl extends JFrame implements Morrigan
 
     public void setJl(JLabel jl) {
         this.jl = jl;
+    }
+}
+```
+ - 抽象装饰角色
+```java
+package net.riking.design.decorator.pattern.morrigan;
+
+//抽象装饰角色：变身
+public abstract  class DecoratorMorrigan implements Morrigan
+{
+    Morrigan m;   
+    public DecoratorMorrigan(Morrigan m)
+    {
+        this.m=m;
+    }
+
+    public String getDescription() {
+        return m.getDescription()+"变身";
+    }
+
+    public void display()
+    {
+        m.display();
+    }
+}
+```
+ - 具体装饰角色
+```java
+package net.riking.design.decorator.pattern.morrigan;
+
+import javax.swing.*;
+
+//具体装饰角色：蝙蝠女妖
+public class BatGirl extends DecoratorMorrigan
+{
+    public BatGirl(Morrigan m)
+    {
+        super(m);
+    }
+    @Override
+    public String getDescription() {
+        return super.getDescription()+"蝙蝠女妖";
+    }
+
+    public void display()
+    {
+        setChanger();
+        super.display();
+
+    }
+    public void setChanger()
+    {
+        ((OriginalGirl) super.m).setJl(new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("static").getPath()+"/Morrigan1.jpg")));
+    }
+}
+```
+ - 具体装饰角色
+```java
+package net.riking.design.decorator.pattern.morrigan;
+
+import javax.swing.*;
+
+//具体装饰角色：可爱少女
+public class SweetGirl extends DecoratorMorrigan
+{
+    public SweetGirl(Morrigan m)
+    {
+        super(m);
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription()+"可爱少女";
+    }
+
+    public void display()
+    {
+        setChanger();
+        super.display();
+
+    }
+    public void setChanger()
+    {
+        ((OriginalGirl) super.m).setJl(new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("static").getPath()+"/Morrigan2.jpg")));
     }
 }
 ```
