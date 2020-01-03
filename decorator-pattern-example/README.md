@@ -31,23 +31,16 @@
 
 ####【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
 
+程序代码如下： 
+
 ```java
-	import org.springframework.boot.*;
-	import org.springframework.boot.autoconfigure.*;
-	import org.springframework.web.bind.annotation.*;
+package net.riking.design.decorator.pattern.morrigan;
 
-	@RestController
-	@SpringBootApplication
-	public class Example {
+//抽象构件角色：莫莉卡
+public interface  Morrigan
+{
+     String getDescription();
 
-		@RequestMapping("/")
-		String home() {
-			return "Hello World!";
-		}
-
-		public static void main(String[] args) {
-			SpringApplication.run(Example.class, args);
-		}
-
-	}
+     void display();
+}
 ```
