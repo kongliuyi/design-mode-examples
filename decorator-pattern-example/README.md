@@ -187,7 +187,9 @@ public class SweetGirl extends DecoratorMorrigan
 ```
 
 参考例子
-[*](http://c.biancheng.net/view/1366.html)
-[*](https://blog.csdn.net/zhshulin/article/details/38665187)
-[*](https://blog.csdn.net/liujun03/article/details/80738546)
+[*莫莉卡·安斯兰](http://c.biancheng.net/view/1366.html)
+
+[*咖啡案例](https://blog.csdn.net/zhshulin/article/details/38665187)
+
+[*更多参考案例](https://blog.csdn.net/liujun03/article/details/80738546)
      
