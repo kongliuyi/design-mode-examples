@@ -169,7 +169,7 @@ public class SweetGirl extends DecoratorMorrigan
     }
 }
 ```
-- 测试
+- 测试结果
 ```java
     public static void main(String[] args) {
         Morrigan m0=new OriginalGirl();
@@ -182,10 +182,13 @@ public class SweetGirl extends DecoratorMorrigan
         System.out.println(m2.getDescription());
         m2.display();
     }
-```
-- 结果
-
+    /**
+     输出打印
      原身莫莉卡·安斯兰 
      原身莫莉卡·安斯兰变身蝙蝠女妖 
-     原身莫莉卡·安斯兰变身可爱少女 
+     原身莫莉卡·安斯兰变身可爱少女 */
+```
+
+
+
      
