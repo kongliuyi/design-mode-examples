@@ -171,6 +171,7 @@ public class SweetGirl extends DecoratorMorrigan
 ```
 - 测试结果
 ```java
+public class DecoratorPatternTest {
     public static void main(String[] args) {
         Morrigan m0=new OriginalGirl();
         System.out.println(m0.getDescription());
@@ -187,6 +188,7 @@ public class SweetGirl extends DecoratorMorrigan
      原身莫莉卡·安斯兰 
      原身莫莉卡·安斯兰变身蝙蝠女妖 
      原身莫莉卡·安斯兰变身可爱少女 */
+}
 ```
 ## 【例2】用装饰模式实现咖啡口味搭配。
    咖啡是一种饮料，咖啡的本质是咖啡豆+水磨出来的。咖啡店现在要卖各种口味的咖啡，如果不使用装饰模式，那么在销售系统中，各种不一样的咖啡都要产生一个类，如果有4中咖啡豆，5种口味，那么将要产生至少20个类（不包括混合口味），非常麻烦。使用了装饰模式，只需要11个类即可生产任意口味咖啡（包括混合口味）。
@@ -339,6 +341,7 @@ public class Sugar extends DecoratorCoffee{
 ```
 - 测试类以及结果
 ```java
+public class DecoratorPatternTest {
     @Test
     public  void  coffee(){
         Beverages beverages= new EthiopianCoffeeBean();
@@ -354,6 +357,7 @@ public class Sugar extends DecoratorCoffee{
     加入牛奶！
     加入糖！
     总价格:75.0  */
+}
 ```
 
 参考例子
