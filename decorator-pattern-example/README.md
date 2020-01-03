@@ -29,14 +29,14 @@
      具体装饰（ConcreteDecorator）角色：实现抽象装饰的相关方法，并给具体构件对象添加附加的责任。
 
 
-####【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
+【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
 
 程序代码如下： 
 
+//抽象构件角色：莫莉卡
 ```java
 package net.riking.design.decorator.pattern.morrigan;
 
-//抽象构件角色：莫莉卡
 public interface  Morrigan
 {
      String getDescription();
