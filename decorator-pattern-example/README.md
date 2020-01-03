@@ -1,7 +1,4 @@
-# decorator-mode-examples
-#### http://c.biancheng.net/view/1366.html
-#### https://blog.csdn.net/zhshulin/article/details/38665187
-#### https://blog.csdn.net/liujun03/article/details/80738546
+# decorator-pattern-examples
 
   在现实生活中，常常需要对现有产品增加新的功能或美化其外观，如房子装修、相片加相框等。在软件开发过程中，有时想用一些现存的组件。这些组件可能只是完成了一些核心功能。但在不改变其结构的情况下，可以动态地扩展其功能。所有这些都可以釆用装饰模式来实现。
   
@@ -189,6 +186,8 @@ public class SweetGirl extends DecoratorMorrigan
      原身莫莉卡·安斯兰变身可爱少女 */
 ```
 
-
-
+参考例子
+[*](http://c.biancheng.net/view/1366.html)
+[*](https://blog.csdn.net/zhshulin/article/details/38665187)
+[*](https://blog.csdn.net/liujun03/article/details/80738546)
      
