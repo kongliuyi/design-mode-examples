@@ -29,13 +29,24 @@
      具体装饰（ConcreteDecorator）角色：实现抽象装饰的相关方法，并给具体构件对象添加附加的责任。
 
 
+2. 针对的问题
+
+        动态地给一个对象添加一些额外的职责。就增加功能来说，Decorator模式相比生成子类更为灵活。不改变接口的前提下，增强所考虑的类的性能。
+
+何时使用：
+
+    1）需要扩展一个类的功能，或给一个类增加附加责任。
+
+    2）需要动态的给一个对象增加功能，这些功能可以再动态地撤销。
+
+    3）需要增加一些基本功能的排列组合而产生的非常大量的功能，从而使继承变得    不现实。
+
 ## 【例1】用装饰模式实现游戏角色“莫莉卡·安斯兰”的变身。
 
 程序代码如下： 
 
- - 抽象构件角色
+ - 抽象构件角色：莫莉卡
 ```java
-package net.riking.design.decorator.pattern.morrigan;
 //抽象构件角色：莫莉卡
 public interface  Morrigan
 {
@@ -44,10 +55,8 @@ public interface  Morrigan
      void display();
 }
 ```
-- 具体构件角色
+- 具体构件角色：原身少女
 ```java
-package net.riking.design.decorator.pattern.morrigan;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -82,10 +91,8 @@ public class OriginalGirl extends JFrame implements Morrigan
     }
 }
 ```
- - 抽象装饰角色
+ - 抽象装饰角色：变身
 ```java
-package net.riking.design.decorator.pattern.morrigan;
-
 //抽象装饰角色：变身
 public abstract  class DecoratorMorrigan implements Morrigan
 {
@@ -105,10 +112,8 @@ public abstract  class DecoratorMorrigan implements Morrigan
     }
 }
 ```
- - 具体装饰角色
+ - 具体装饰角色：蝙蝠女妖
 ```java
-package net.riking.design.decorator.pattern.morrigan;
-
 import javax.swing.*;
 
 //具体装饰角色：蝙蝠女妖
@@ -135,13 +140,11 @@ public class BatGirl extends DecoratorMorrigan
     }
 }
 ```
- - 具体装饰角色
+ - 具体装饰角色：着装少女
 ```java
-package net.riking.design.decorator.pattern.morrigan;
-
 import javax.swing.*;
 
-//具体装饰角色：可爱少女
+//具体装饰角色：着装少女
 public class SweetGirl extends DecoratorMorrigan
 {
     public SweetGirl(Morrigan m)
@@ -184,6 +187,173 @@ public class SweetGirl extends DecoratorMorrigan
      原身莫莉卡·安斯兰 
      原身莫莉卡·安斯兰变身蝙蝠女妖 
      原身莫莉卡·安斯兰变身可爱少女 */
+```
+## 【例2】用装饰模式实现咖啡口味搭配。
+   咖啡是一种饮料，咖啡的本质是咖啡豆+水磨出来的。咖啡店现在要卖各种口味的咖啡，如果不使用装饰模式，那么在销售系统中，各种不一样的咖啡都要产生一个类，如果有4中咖啡豆，5种口味，那么将要产生至少20个类（不包括混合口味），非常麻烦。使用了装饰模式，只需要11个类即可生产任意口味咖啡（包括混合口味）。
+
+程序代码如下： 
+- 抽象构件角色：饮料
+```java
+/**
+ * 抽象构件（Component）：饮料
+ */
+public interface Beverages {
+	//返回商品描述
+	 String getDescription();
+	//返回价格
+	 double getPrice();
+}
+
+```
+- 具体构件角色：埃塞俄比亚咖啡豆
+```java
+/**
+ * 具体构件（Concrete Component）角色：埃塞俄比亚咖啡豆
+ */
+public class EthiopianCoffeeBean implements Beverages {
+	private String description = "选取埃塞俄比亚咖啡豆";
+	@Override
+	public String getDescription() {
+		return description;
+	}
+	@Override
+	public double getPrice() {
+		return 50;
+	}
+ 
+}
+```
+- 具体构件角色：肯尼亚咖啡豆
+```java
+/**
+ * 具体构件（Concrete Component）角色：肯尼亚咖啡豆
+ */
+public class KenyanCoffeeBean implements Beverages {
+	private String description = "选取肯尼亚咖啡豆";
+	@Override
+	public String getDescription() {
+		return description;
+	}
+	@Override
+	public double getPrice() {
+		return 45;
+	}
+ 
+}
+```
+- 具体构件角色：苏门答腊咖啡豆
+```java
+/**
+ * 具体构件（Concrete Component）角色：苏门答腊咖啡豆
+ */
+public class SumatraCoffeeBean implements Beverages {
+	private String description = "选取苏门答腊咖啡豆";
+	@Override
+	public String getDescription() {
+		return description;
+	}
+	@Override
+	public double getPrice() {
+		return 60;
+	}
+ 
+}
+```
+ - 抽象装饰角色
+```java
+/**
+ *  抽象装饰（Decorator）：装饰类
+ */
+public abstract class DecoratorCoffee implements Beverages {
+	private Beverages beverages ;
+
+	public DecoratorCoffee(Beverages beverages) {
+		this.beverages = beverages;
+	}
+
+	@Override
+	public String getDescription() {
+		return beverages.getDescription();
+	}
+	@Override
+	public double getPrice() {
+		return beverages.getPrice();
+	}
+
+}
+```
+ - 具体装饰角色：牛奶
+```java
+/**
+ * 具体装饰（ConcreteDecorator）角色：牛奶
+ */
+public class Milk extends DecoratorCoffee{
+	private String description = "牛奶！";
+	public Milk(Beverages beverages){
+		super(beverages);
+	}
+	public String getDescription(){
+		return super.getDescription()+"\n加入"+description;
+	}
+	public double getPrice(){
+		return super.getPrice()+20;	//20表示牛奶的价格
+	}
+}
+```
+ - 具体装饰角色：摩卡
+```java
+/**
+ * 具体装饰（ConcreteDecorator）角色：摩卡
+ */
+public class Mocha extends DecoratorCoffee {
+	private String description = "摩卡！";
+
+	public Mocha(Beverages beverages){
+	super(beverages);
+	}
+	public String getDescription(){
+		return super.getDescription()+"\n加入"+description;
+	}
+	public double getPrice(){
+		return super.getPrice()+49;	//30表示摩卡的价格
+	}
+}
+```
+ - 具体装饰角色：糖
+```java
+/**
+ * 具体装饰（ConcreteDecorator）角色：糖
+ */
+public class Sugar extends DecoratorCoffee{
+	private String description = "糖！";
+	public Sugar(Beverages beverages){
+		super(beverages);
+	}
+	public String getDescription(){
+		return super.getDescription()+"\n加入"+description;
+	}
+	public double getPrice(){
+		return super.getPrice()+5;	//5表示糖的价格
+	}
+}
+```
+- 测试类以及结果
+```java
+    @Test
+    public  void  coffee(){
+        Beverages beverages= new EthiopianCoffeeBean();
+        beverages = new Milk(beverages);
+        beverages =new Sugar(beverages);
+        System.out.println(beverages.getDescription());
+        System.out.println("总价格:"+beverages.getPrice());
+
+    }
+    /**
+    输出打印
+    选取埃塞俄比亚咖啡豆
+    加入牛奶！
+    加入糖！
+    总价格:75.0  */
 ```
 
 参考例子
