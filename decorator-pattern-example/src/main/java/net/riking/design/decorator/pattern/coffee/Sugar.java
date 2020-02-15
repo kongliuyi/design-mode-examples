@@ -1,16 +1,26 @@
 package net.riking.design.decorator.pattern.coffee;
+
 /**
- * 具体装饰（ConcreteDecorator）角色：糖
+ * @Description 具体装饰（ConcreteDecorator）角色：糖
+ * @Author: kongLiuYi
+ * @Date: 2020/2/15 23:31
  */
-public class Sugar extends DecoratorCoffee{
+public class Sugar extends AbstractDecoratorCoffee {
+
 	private String description = "糖！";
+
 	public Sugar(Beverages beverages){
 		super(beverages);
 	}
+
+	@Override
 	public String getDescription(){
 		return super.getDescription()+"\n加入"+description;
 	}
+
+	@Override
 	public double getPrice(){
-		return super.getPrice()+5;	//5表示糖的价格
+		//5表示糖的价格
+		return super.getPrice()+5;
 	}
 }

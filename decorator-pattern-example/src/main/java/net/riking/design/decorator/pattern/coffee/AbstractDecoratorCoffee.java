@@ -1,12 +1,15 @@
 package net.riking.design.decorator.pattern.coffee;
 
 /**
- *  抽象装饰（Decorator）：装饰类
+ * @Description 抽象装饰（Decorator）：装饰类
+ * @Author: kongLiuYi
+ * @Date: 2020/2/15 23:31
  */
-public abstract class DecoratorCoffee implements Beverages {
+public abstract class AbstractDecoratorCoffee implements Beverages {
+
 	private Beverages beverages ;
 
-	public DecoratorCoffee(Beverages beverages) {
+	public AbstractDecoratorCoffee(Beverages beverages) {
 		this.beverages = beverages;
 	}
 
@@ -14,6 +17,7 @@ public abstract class DecoratorCoffee implements Beverages {
 	public String getDescription() {
 		return beverages.getDescription();
 	}
+
 	@Override
 	public double getPrice() {
 		return beverages.getPrice();

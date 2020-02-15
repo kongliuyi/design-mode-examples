@@ -2,11 +2,14 @@ package net.riking.design.decorator.pattern.morrigan;
 
 import javax.swing.*;
 
-//具体装饰角色：可爱少女
-public class SweetGirl extends DecoratorMorrigan
-{
-    public SweetGirl(Morrigan m)
-    {
+/**
+ * @Description 具体构件角色：可爱少女
+ * @Author: kongLiuYi
+ * @Date: 2020/2/15 23:31
+ */
+public class SweetGirl extends DecoratorMorrigan {
+
+    public SweetGirl(Morrigan m) {
         super(m);
     }
 
@@ -15,14 +18,14 @@ public class SweetGirl extends DecoratorMorrigan
         return super.getDescription()+"可爱少女";
     }
 
-    public void display()
-    {
+    @Override
+    public void display() {
         setChanger();
         super.display();
 
     }
-    public void setChanger()
-    {
+
+    public void setChanger() {
         ((OriginalGirl) super.m).setJl(new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("static").getPath()+"/Morrigan2.jpg")));
     }
 }
