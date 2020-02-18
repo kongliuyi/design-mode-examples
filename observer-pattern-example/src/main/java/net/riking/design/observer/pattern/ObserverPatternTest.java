@@ -2,6 +2,7 @@ package net.riking.design.observer.pattern;
 
 import net.riking.design.observer.pattern.event.*;
 import net.riking.design.observer.pattern.rmbrate.*;
+import net.riking.design.observer.pattern.spring.event.*;
 import org.junit.Test;
 /**
  * @Description 观察者模式测试类
@@ -44,6 +45,37 @@ public class ObserverPatternTest {
         bell.publishEvent(new RingEvent(bell, true));
         //打下课铃声
         bell.publishEvent(new RingEvent(bell, false));
+    }
+
+    @Test
+    public void  springEvent(){
+        // 构造一个广播器
+        SimpleApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
+        // 添加监听器
+        eventMulticaster.addApplicationListener(new TopApplicationListener());
+        eventMulticaster.addApplicationListener(new BottomApplicationListener());
+        // 广播器广播事件
+        eventMulticaster.multicastEvent(new ApplicationStartingEvent("Starting"));
+        eventMulticaster.multicastEvent(new ApplicationPreparedEvent("Prepared"));
+
+    }
+
+
+    @Test
+    public void  springEvent2(){
+        // 构造一个广播器
+        SimpleApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
+        // 添加监听器
+        eventMulticaster.addApplicationListener(new TopApplicationListener());
+        eventMulticaster.addApplicationListener(new BottomApplicationListener());
+        // 构造一个应用从开启到运行时期的过程
+        EventPublishingRunListener runListener = new EventPublishingRunListener(eventMulticaster, "application");
+        System.out.println("应用开始时期");
+        runListener.starting();
+        System.out.println("应用加载时期");
+        runListener.contextLoaded();
+        System.out.println("应用运行时期");
+        runListener.running();
     }
 
 
